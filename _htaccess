@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /proxy_script/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^iiif_manifest/(.*?)$ /proxy_script/proxy_nas.php?iiif_manifest=$1 [L]
+
+RewriteRule ^generate_iiif_manifest/(.*?)/(.*?)/(.*?)$ /proxy_script/gen_iiif_manifest_gaz.php?path=$1&year=$2&img=$3 [L,QSA]
+#RewriteRule ^generate_iiif_manifest/(.*?)/(.*?)$ /proxy_script/gen_iiif_manifest_gaz.php?path=$1&img=$2 [L,QSA]
